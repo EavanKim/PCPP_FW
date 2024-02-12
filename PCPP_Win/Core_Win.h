@@ -9,6 +9,8 @@ namespace PCPP
 		explicit Core_Win(std::vector<std::string>& _arg);
 		virtual ~Core_Win();
 
+		// ICore을(를) 통해 상속됨
+		time_t GetDeltaTime() override;
 	private:
 
 	};

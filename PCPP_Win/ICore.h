@@ -11,7 +11,7 @@ namespace PCPP
 	public:
 		explicit ICore(std::vector<std::string>& _arg, uint64_t _startTick)
 			: m_args(std::move(_arg))
-			, m_startTime(_startTick)
+			, m_context(time(NULL))
 		{
 
 		}
@@ -29,36 +29,31 @@ namespace PCPP
 
 		void Add(ITicker*& _ticker)
 		{
-			m_ticker.push_back(_ticker);
+			m_ticker.insert(_ticker);
 		}
 
 		void Remove(ITicker*& _ticker)
 		{
-			for (std::vector<ITicker*>::iterator iter = m_ticker.begin(); m_ticker.end() != iter; ++iter)
+			for (std::set<ITicker*>::iterator iter = m_ticker.begin(); m_ticker.end() != iter; ++iter)
 			{
 				while (_ticker == *iter)
 					iter = m_ticker.erase(iter);
 			}
 		}
 
-		virtual uint64_t Tick()
+		virtual void Tick()
 		{
-			uint64_t flag = 0;
-
-			uint64_t deltaTime = GetDeltaTime();
-
-			for (ITicker*& ticker : m_ticker)
+			if (m_context.Update())
 			{
-				flag |= ticker->Tick(deltaTime);
-
-				if (0xFF000000000000 & flag)
+				for (std::set<ITicker*>::iterator iter = m_ticker.begin();
+					m_context.CheckInterrupt() && (m_ticker.end() != iter);
+					m_context.CheckRemove() ? iter = m_ticker.erase(iter) : ++iter)
 				{
-					m_isLive = false;
-					break;
+					m_context.CleanState(RemoveFlag);
+					ITicker* Ticker = *iter;
+					Ticker->Tick(m_context);
 				}
 			}
-
-			return flag;
 		}
 
 		bool IsLive()
@@ -67,14 +62,12 @@ namespace PCPP
 		}
 
 	private:
-		virtual uint64_t GetDeltaTime() = 0;
-
-		uint64_t m_startTime = 0;
-		uint64_t m_currentTime = 0;
-		uint64_t m_deltaTime = 0;
+		virtual time_t GetDeltaTime() = 0;
+		
+		Context_Tick m_context;
 		bool m_isLive = true;
 		std::vector<std::string> m_args = {};
-		std::vector<ITicker*> m_ticker = {};
+		std::set<ITicker*> m_ticker = {};
 	};
 }
 

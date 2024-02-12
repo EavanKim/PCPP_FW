@@ -131,7 +131,9 @@
     <ClCompile Include="PCPP_Win.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Context_Tick.h" />
     <ClInclude Include="Core_Win.h" />
+    <ClInclude Include="FW_Define.h" />
     <ClInclude Include="IComponent.h" />
     <ClInclude Include="ICore.h" />
     <ClInclude Include="ITicker.h" />

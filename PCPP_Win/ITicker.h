@@ -5,12 +5,29 @@ namespace PCPP
 	class ITicker
 	{
 	public:
-		uint64_t Tick(uint64_t _deltaTime)
+		virtual void Tick(Context_Tick& _context)
 		{
-			return 0;
+			for (std::set<IComponent*>::iterator iter = m_components.begin();
+				_context.CheckInterrupt() && (m_components.end() != iter);
+				_context.CheckRemove() ? iter = m_components.erase(iter) : ++iter)
+			{
+				_context.CleanState(RemoveFlag);
+				IComponent* component = *iter;
+				component->Tick(_context);
+			}
+		}
+
+		void AddComponent(IComponent* _comp)
+		{
+			m_components.insert(_comp);
+		}
+
+		void RemoveComponent(IComponent* _comp)
+		{
+			m_components.erase(_comp);
 		}
 
 	private:
-		std::vector<IComponent*> m_components;
+		std::set<IComponent*> m_components;
 	};
 }

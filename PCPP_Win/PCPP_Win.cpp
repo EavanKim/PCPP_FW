@@ -1,4 +1,7 @@
 ﻿#include <iostream>
+#include <set>
+#include "FW_Define.h"
+#include "Context_Tick.h"
 #include "ICore.h"
 #include "Core_Win.h"
 
@@ -16,7 +19,7 @@ int main(int argc, char* argv[])
 	{
 		while (core->IsLive())
 		{
-			core->Tick(1);
+			core->Tick();
 		}
 
 		delete core;
