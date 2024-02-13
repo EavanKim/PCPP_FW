@@ -13,8 +13,14 @@ namespace PCPP
 
 	}
 
-	time_t Core_Win::GetDeltaTime()
+	void Core_Win::Tick()
 	{
-		return 0;
+		MSG message;
+		if (PeekMessageW(&message, NULL, 0, 0, PM_NOREMOVE))
+		{
+
+		}
+
+		ICore::Tick();
 	}
 }

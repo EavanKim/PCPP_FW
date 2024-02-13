@@ -1,8 +1,5 @@
 ﻿#include <iostream>
-#include <set>
-#include "FW_Define.h"
-#include "Context_Tick.h"
-#include "ICore.h"
+#include "PCPP_Lib_Header.h"
 #include "Core_Win.h"
 
 int main(int argc, char* argv[])
@@ -17,9 +14,16 @@ int main(int argc, char* argv[])
 
 	if (nullptr != core)
 	{
-		while (core->IsLive())
+		try
 		{
-			core->Tick();
+			while (core->IsLive())
+			{
+				core->Tick();
+			}
+		}
+		catch (...)
+		{
+
 		}
 
 		delete core;
