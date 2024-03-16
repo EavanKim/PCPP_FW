@@ -140,15 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Context_Tick.h" />
-    <ClInclude Include="framework.h" />
     <ClInclude Include="FW_Define.h" />
     <ClInclude Include="IAsync_Core.h" />
     <ClInclude Include="IComponent.h" />
     <ClInclude Include="ICore.h" />
     <ClInclude Include="IAsync_Work.h" />
-    <ClInclude Include="IInput_PressAndRelease.h" />
     <ClInclude Include="ITicker.h" />
-    <ClInclude Include="Mgr_IO.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PCPP_Lib_Header.h" />
   </ItemGroup>
@@ -158,17 +155,13 @@
     <ClCompile Include="IComponent.cpp" />
     <ClCompile Include="ICore.cpp" />
     <ClCompile Include="IAsync_Work.cpp" />
-    <ClCompile Include="IInput_PressAndRelease.cpp" />
     <ClCompile Include="ITicker.cpp" />
-    <ClCompile Include="Mgr_Input.cpp" />
-    <ClCompile Include="Mgr_IO.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="PCPP_LIB.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

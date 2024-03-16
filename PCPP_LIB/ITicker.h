@@ -13,6 +13,7 @@ namespace PCPP
 
 		void AddComponent(IComponent* _comp);
 		void RemoveComponent(IComponent* _comp);
+		void RemoveComponent(bool (*_func)(IComponent*));
 
 	private:
 		ICore* m_parent = nullptr;

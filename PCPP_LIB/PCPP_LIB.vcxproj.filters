@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -39,12 +36,6 @@
     <ClInclude Include="PCPP_Lib_Header.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Mgr_IO.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="IInput_PressAndRelease.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="IAsync_Core.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -53,9 +44,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PCPP_LIB.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -69,15 +57,6 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Context_Tick.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Mgr_Input.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="IInput_PressAndRelease.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Mgr_IO.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="IAsync_Core.cpp">

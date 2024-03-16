@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <unordered_map>
 #include <set>
 
 #include "FW_Define.h"
@@ -8,5 +9,4 @@
 #include "ITicker.h"
 #include "IComponent.h"
 #include "IAsync_Work.h"
-#include "Mgr_IO.h"
 #include "ICore.h"

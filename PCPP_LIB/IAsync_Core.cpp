@@ -17,4 +17,9 @@ namespace PCPP
 	{
 		return m_context.HaveState(ExitFlag | ExceptionFlag);
 	}
+
+	void IAsync_Core::Stop()
+	{
+		m_context.SetState(ExitFlag);
+	}
 }

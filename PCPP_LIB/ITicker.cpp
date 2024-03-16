@@ -33,4 +33,15 @@ namespace PCPP
 	{
 		m_components.erase(_comp);
 	}
+
+	void ITicker::RemoveComponent(bool(*_func)(IComponent*))
+	{
+		for (std::set<IComponent*>::iterator iter = m_components.begin(); m_components.end() != iter; ++iter)
+		{
+			if (_func(*iter))
+			{
+				iter = m_components.erase(iter);
+			}
+		}
+	}
 }
